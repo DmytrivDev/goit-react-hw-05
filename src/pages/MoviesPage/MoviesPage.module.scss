@@ -1,0 +1,55 @@
+.movie__form {
+    width: 100%;
+    padding: 1em;
+    border: 1px solid #828282;
+
+    input {
+        height: 3rem;
+        padding: 0 1em;
+        background-color: #fff;
+        color: #000;
+        display: block; width: 100%;
+    }
+
+    button {
+        display: block;
+        width: 100%;
+        height: 3rem;
+        margin-top: 0.75rem;
+        background-color: #505050;
+        color: #fff;
+        font-size: 1.125em;
+        font-weight: 500;
+        border: none;
+        cursor: pointer;
+        transition: .3s;
+
+        &:hover {
+            background-color: #2e2e2e;
+        }
+    }
+}
+
+.search__cont {
+    margin-top: 1.5em;
+}
+
+.movies__list {
+    margin-top: 1.5em;
+    padding-top: 1.5em;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1.5rem
+}
+
+@media screen and (max-width: 980px) {
+    .movies__list {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .movies__list {
+        grid-template-columns: 1fr 1fr;
+    }
+}

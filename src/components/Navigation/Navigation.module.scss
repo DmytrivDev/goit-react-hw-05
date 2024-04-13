@@ -1,0 +1,23 @@
+.header {
+    padding: 1.25rem 0;
+    background-color: #404040;
+}
+
+.header__nav {
+    display: flex;
+    align-items: center;
+    align-content: center;
+
+    a {
+        padding: .5rem 1rem;
+        color: #fff;
+        text-decoration: none;
+        background-color: #000;
+
+        &[aria-current="page"] {
+            color: #000;
+            background-color: #fff;
+        }
+
+    }
+}
