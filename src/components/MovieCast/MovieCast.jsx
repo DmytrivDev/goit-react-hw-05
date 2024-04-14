@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import CostItem from "../CostItem/CostItem";
 
@@ -8,14 +8,15 @@ import { FetchMovieCast } from "../../API/FetchMovies";
 import css from "./MovieCast.module.scss";
 
 function MovieCast() {
-  const location = useLocation();
+  const params = useParams();
 
   const [movieCast, setMovieCast] = useState([]);
+  const movieId = params.movieId;
 
   useEffect(() => {
     const hendleMovieCast = async () => {
       try {
-        const response = await FetchMovieCast(location.state);
+        const response = await FetchMovieCast(movieId);
         setMovieCast(response.data.cast);
       } catch (error) {
         console.log(error);
@@ -23,7 +24,7 @@ function MovieCast() {
     };
 
     hendleMovieCast();
-  }, []);
+  }, [movieId]);
 
   return (
     <ul className={css.cast__list}>

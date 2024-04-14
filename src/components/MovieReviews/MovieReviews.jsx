@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import ReviewsItem from "../ReviewsItem/ReviewsItem";
 
@@ -8,14 +8,15 @@ import { FetchMoviereviews } from "../../API/FetchMovies";
 import css from "./MovieReviews.module.scss";
 
 function MovieReviews() {
-  const location = useLocation();
+  const params = useParams();
 
   const [movieRevs, setMovieRevs] = useState([]);
+  const movieId = params.movieId;
 
   useEffect(() => {
     const hendleMovieRevs = async () => {
       try {
-        const response = await FetchMoviereviews(location.state);
+        const response = await FetchMoviereviews(movieId);
         setMovieRevs(response.data.results);
       } catch (error) {
         console.log(error);
@@ -23,7 +24,7 @@ function MovieReviews() {
     };
 
     hendleMovieRevs();
-  }, []);
+  }, [movieId]);
 
 
   return (

@@ -5,11 +5,48 @@
     gap: 1.5rem
 }
 
+.movie__item {
+    padding: 0;
+    list-style: none;
+    margin: 0;
+    background-color: #f6f6f6;
+
+    .movieitem__img {
+        padding-top: 140%;
+        position: relative;
+        display: block;
+        overflow: hidden;
+        background-repeat: no-repeat;
+        background-color: #404040;
+        background-position: center center;
+        background-size: 80%;
+        background-image: url("data:image/svg+xml,%0A%3Csvg fill='%23fff' version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 300 300' xml:space='preserve'%3E%3Cg%3E%3Cg%3E%3Cg%3E%3Cpath d='M149.996,0C67.157,0,0.001,67.161,0.001,149.997S67.157,300,149.996,300s150.003-67.163,150.003-150.003 S232.835,0,149.996,0z M226.946,224.021L226.946,224.021c-0.001,8.593-6.97,15.562-15.563,15.562H88.622 c-8.593,0-15.562-6.969-15.562-15.562V75.323c0-8.593,6.969-15.562,15.562-15.562h122.762c8.593,0,15.562,6.969,15.562,15.562 V224.021z'/%3E%3Cpath d='M183.261,161.5h-66.52c-3.919,0-7.091,3.177-7.091,7.091v41.272c0,3.919,3.175,7.091,7.091,7.091h66.52 c3.919,0,7.091-3.175,7.091-7.091v-41.272C190.355,164.674,187.18,161.5,183.261,161.5z'/%3E%3Crect x='84.775' y='112.932' width='13.401' height='15.562'/%3E%3Crect x='84.775' y='83.646' width='13.401' height='15.562'/%3E%3Crect x='84.775' y='200.793' width='13.401' height='15.562'/%3E%3Crect x='84.775' y='171.506' width='13.401' height='15.562'/%3E%3Crect x='84.775' y='142.219' width='13.401' height='15.562'/%3E%3Cpath d='M183.261,82.396h-66.52c-3.919,0-7.091,3.177-7.091,7.091v41.272c0,3.919,3.175,7.091,7.091,7.091h66.52 c3.919,0,7.091-3.175,7.091-7.091V89.486C190.355,85.57,187.18,82.396,183.261,82.396z'/%3E%3Crect x='201.92' y='83.646' width='13.401' height='15.562'/%3E%3Crect x='201.92' y='200.793' width='13.401' height='15.562'/%3E%3Crect x='201.92' y='112.932' width='13.401' height='15.562'/%3E%3Crect x='201.92' y='171.506' width='13.401' height='15.562'/%3E%3Crect x='201.92' y='142.219' width='13.401' height='15.562'/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+        img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .movieitem__name {
+        padding: 0.5em;
+        font-size: 1.25em;
+        color: #000;
+        text-decoration: none;
+        display: block;
+    }
+}
+
 @media screen and (max-width: 980px) {
     .movies__list {
         grid-template-columns: 1fr 1fr 1fr;
     }
-}
+} 
 
 @media screen and (max-width: 760px) {
     .movies__list {

@@ -8,7 +8,7 @@ import { FetchSearchMovie } from "../../API/FetchMovies";
 import css from "./MoviesPage.module.scss";
 
 function MoviesPage() {
-  const [searchedMovies, setSearchedMovies] = useState();
+  const [searchedMovies, setSearchedMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const searchWord = searchParams.get("search");
 
@@ -31,7 +31,7 @@ function MoviesPage() {
     };
 
     hendleSearchMovie();
-  }, [searchParams]);
+  }, [searchWord]);
 
   return (
     <div className="page">

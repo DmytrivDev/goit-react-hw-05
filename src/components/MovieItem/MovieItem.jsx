@@ -14,7 +14,7 @@ function MovieItem({ item }) {
         {title} 
       </Link>
     </li> 
-  );
+  ); 
 }
 
 export default MovieItem;

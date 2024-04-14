@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   useParams,
   useNavigate,
@@ -8,8 +8,6 @@ import {
 } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 
-import HomePage from "../HomePage/HomePage";
-
 import { FetchMovie } from "../../API/FetchMovies";
 
 import css from "./MovieDetailsPage.module.scss";
@@ -18,6 +16,7 @@ function MovieDetailsPage() {
   const { movieId } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
+  const refLocation = useRef(location);
 
   const [movieDetails, setMovieDetails] = useState([]);
   const { title, vote_average, budget, poster_path, overview, genres } =
@@ -36,11 +35,12 @@ function MovieDetailsPage() {
     hendleMovie();
   }, []);
 
+
   const handleGoBack = () => {
-    if (location.key === "default") {
-      navigate("/movies", { replace: false });
+    if (refLocation.current.state) {
+      navigate(refLocation.current.state, { replace: false });
     } else {
-      navigate(-1, { replace: false });
+      navigate("/movies", { replace: false });
     }
   };
 
@@ -90,10 +90,10 @@ function MovieDetailsPage() {
               </div>
               <div className={css.aditionsl__inform}>
                 <nav>
-                  <NavLink to="cast" state={movieId} replace>
+                  <NavLink to="cast" replace>
                     Cast
                   </NavLink>
-                  <NavLink to="reviews" state={movieId} replace>
+                  <NavLink to="reviews" replace>
                     Reviews
                   </NavLink>
                 </nav>
@@ -103,7 +103,6 @@ function MovieDetailsPage() {
           )}
         </div>
       </div>
-      <HomePage />
     </>
   );
 }
