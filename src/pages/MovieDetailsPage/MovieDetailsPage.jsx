@@ -33,7 +33,7 @@ function MovieDetailsPage() {
     };
 
     hendleMovie();
-  }, []);
+  }, [movieId]);
 
 
   const handleGoBack = () => {
